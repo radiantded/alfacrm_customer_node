@@ -13,3 +13,7 @@
 7. Запустите Ngrok htpp на порту 9000. Сделайте его скриншот и добавьте в README.md
 
 Ответ:
+
+![Container files](/screens/container.jpg?raw=true "Container files")
+
+![Ngrok](/screens/ngrok.jpg?raw=true "Ngrok")
