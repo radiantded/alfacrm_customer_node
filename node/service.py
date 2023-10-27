@@ -10,12 +10,12 @@ from uc_http_requester.requester import Request
 
 
 class NodeType(flow.NodeType):
-    id: str = 'RadiantService'
+    id: str = '07042c7c-b34e-4337-8931-a8cf2504be6d'
     type: flow.NodeType.Type = flow.NodeType.Type.action
-    name: str = 'RadiantService'
-    displayName: str = 'RadiantService'
+    name: str = 'RadiantBot'
+    displayName: str = 'RadiantBot'
     icon: str = '<svg><text x="8" y="50" font-size="50">🤖</text></svg>'
-    description: str = 'RadiantService'
+    description: str = 'RadiantBot'
     properties: List[Property] = [
         Property(
             displayName='Тестовое поле',
@@ -25,6 +25,33 @@ class NodeType(flow.NodeType):
             description='Foo description',
             required=True,
             default='Test data',
+        ),
+        Property(
+            displayName='Текстовое поле',
+            name='text_field',
+            type=Property.Type.STRING,
+            placeholder='Text',
+            description='Текстовое поле',
+            required=True,
+            default='Test text',
+        ),
+        Property(
+            displayName='Числовое поле',
+            name='number_field',
+            type=Property.Type.NUMBER,
+            placeholder='Number',
+            description='Числовое поле',
+            required=True,
+            default=0,
+        ),
+        Property(
+            displayName='Тип значения',
+            name='boolean_field',
+            type=Property.Type.BOOLEAN,
+            placeholder='Переключатель',
+            description='Выкл - str, Вкл - number',
+            required=True,
+            default=False,
         )
     ]
 
@@ -35,10 +62,17 @@ class InfoView(info.Info):
 
 
 class ExecuteView(execute.Execute):
+    async def calculate(self, properties):
+        result = int(properties['text_field']) + properties['number_field']
+        result = str(result) if not properties['boolean_field'] else result
+        return result
+
     async def post(self, json: NodeRunContext) -> NodeRunContext:
         try:
+            prop = json.node.data.properties
+            result = await self.calculate(prop)            
             await json.save_result({
-                "result": json.node.data.properties['foo_field']
+                "result": result
             })
             json.state = RunState.complete
         except Exception as e:
