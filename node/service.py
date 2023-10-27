@@ -1,5 +1,5 @@
 import ujson
-from typing import List, Tuple
+from typing import Any, List, Tuple
 
 from uc_flow_nodes.schemas import NodeRunContext
 from uc_flow_nodes.service import NodeService
@@ -62,7 +62,7 @@ class InfoView(info.Info):
 
 
 class ExecuteView(execute.Execute):
-    async def calculate(self, properties):
+    async def calculate(self, properties: dict[str, Any]) -> str | int:
         result = int(properties['text_field']) + properties['number_field']
         return str(result) if not properties['boolean_field'] else result
 
