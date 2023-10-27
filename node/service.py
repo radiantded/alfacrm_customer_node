@@ -64,13 +64,11 @@ class InfoView(info.Info):
 class ExecuteView(execute.Execute):
     async def calculate(self, properties):
         result = int(properties['text_field']) + properties['number_field']
-        result = str(result) if not properties['boolean_field'] else result
-        return result
+        return str(result) if not properties['boolean_field'] else result
 
     async def post(self, json: NodeRunContext) -> NodeRunContext:
         try:
-            prop = json.node.data.properties
-            result = await self.calculate(prop)            
+            result = await self.calculate(json.node.data.properties)            
             await json.save_result({
                 "result": result
             })

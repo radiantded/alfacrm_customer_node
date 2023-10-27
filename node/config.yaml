@@ -18,5 +18,5 @@ uc_flow_node:
   private_url: https://81fb-46-242-12-179.ngrok-free.app
   public_url: https://81fb-46-242-12-179.ngrok-free.app
   uc_flow:
-    domain: https://uc-flow-v2-pp-api.uis.st
+    domain: https://uc-flow-v2-pp-api.comagic.ru
     jwt_secret: dsgdfdagg
