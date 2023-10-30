@@ -1,4 +1,4 @@
-service_name: '07042c7c-b34e-4337-8931-a8cf2504be6d'
+service_name: '002177ac-590c-44c9-bad9-b557934b97e5'
 
 http:
   url: http://0.0.0.0:9000
@@ -15,8 +15,8 @@ uc_flow_node:
   register_on_start: false
   execute_view_queue_size: 500
   execute_view_workers: 5
-  private_url: https://81fb-46-242-12-179.ngrok-free.app
-  public_url: https://81fb-46-242-12-179.ngrok-free.app
+  private_url: https://7f43-46-242-12-179.ngrok-free.app
+  public_url: https://7f43-46-242-12-179.ngrok-free.app
   uc_flow:
     domain: https://uc-flow-v2-pp-api.comagic.ru
-    jwt_secret: dsgdfdagg
+    jwt_secret: fbe8052f-6b65-4b02-bbe9-5dd4983e4c54
