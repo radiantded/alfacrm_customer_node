@@ -13,19 +13,4 @@ class CredentialType(flow.CredentialType):
     displayName: str = 'AlfaCRM API Auth'
     protocol: CredentialProtocol = CredentialProtocol.ApiKey
     protected_properties: List[Property] = []
-    # properties: List[Property] = [
-    #     Property(
-    #         displayName='URL',
-    #         name='base_url',
-    #         type=Property.Type.STRING,
-    #         default='',
-    #     ),
-    #     Property(
-    #         displayName='API key',
-    #         name='auth.token',
-    #         type=Property.Type.STRING,
-    #         default='',
-    #     ),
-    # ]
     extends: Optional[List[str]] = []
-    # icon: Optional[str] = ICON

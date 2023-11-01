@@ -2,12 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: uc-flow-node",
+      "name": "Python: alfacrm_node",
       "type": "python",
       "request": "launch",
       "program": "/usr/local/bin/uc",
       "env": {
-        "PYTHONPATH": "/workspaces/uc-flow-node"
+        "PYTHONPATH": "/workspaces/alfacrm_node"
       },
       "console": "integratedTerminal",
       "args": [
